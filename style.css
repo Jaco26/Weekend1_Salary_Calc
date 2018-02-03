@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-wrap: nowrap;
-  width: 80%;
+  margin: auto;
 }
 
 .inputDiv {
@@ -10,6 +10,7 @@
   flex-wrap: nowrap;
   height: 50px;
   width: auto;
+  margin: auto;
 }
 
 .inputel {
