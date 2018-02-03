@@ -33,6 +33,7 @@ th, td {
 
 tr:nth-child(even){
   background-color: #f2f2f2;
+
 }
 
 th {
@@ -40,4 +41,11 @@ th {
   color: #00ffa9;
   text-shadow: 2px 2px purple;
   font-size: 18px;
+}
+
+.removeBtn {
+  position: relative;
+  top: 6px;
+  background-color: red;
+  color: white;
 }
