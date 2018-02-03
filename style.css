@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 80%;
+}
+
+.inputDiv {
+  background: #5fc0de;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 50px;
+  width: auto;
+}
+
+.inputel {
+  margin: 15px;
+  margin-right: 10px;
+}
