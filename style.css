@@ -1,5 +1,5 @@
 .container {
-  display: flex;
+  display: inline-block;
   flex-wrap: nowrap;
   margin: auto;
 }
@@ -16,4 +16,28 @@
 .inputel {
   margin: 15px;
   margin-right: 10px;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #5090a0;
+  margin-top: 10px
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #d41ff9;
+  color: #00ffa9;
+  text-shadow: 2px 2px purple;
+  font-size: 18px;
 }
