@@ -2,6 +2,11 @@ var employees = []; // current employees on the DOM
 var removedEmployees = []; // employees that have been removed from the DOM
 var employeesPastAndPresent = []; // all employees ever to have exisited
 
+employees.push(new Employee('Jacob', 'Albright', 'Phone', 13322, 50000));
+employees.push(new Employee('Caroline', 'Cruys', 'Social Worker', 44932, 70000));
+employees.push(new Employee('Jacob', 'Allers', 'Artist', 44998, 55000));
+
+
 function Employee(first, last, title, id, salary){ // constructor for Employee object
   this.firstName = first;
   this.lastName = last;
@@ -11,7 +16,7 @@ function Employee(first, last, title, id, salary){ // constructor for Employee o
 }
 
 $(document).ready(function(){
-
+  displayInfoOnTable(employees);
   $('.inputDiv').on('click', function(e){
     if(e.target && !e.target.matches('.inputel')){
       $('#firstNameIn').focus();
@@ -24,11 +29,11 @@ $(document).ready(function(){
     console.log(employees);
   }); // end #submitBtn click
 
-  $('tbody').on('click', '.removeBtn', function(){
+  $('#infoTable').on('click', '.removeBtn', function(){
     for (var i = 0; i < employees.length; i++) {
       if($(this).data('id') === employees[i].employeeId){
         console.log($(this).data('id') + ' and ' + employees[i].employeeId + ' = a match!');
-        removedEmployees.push(employees.splice(i));
+        removedEmployees.push(employees.splice(i, 1));
         displayInfoOnTable(employees);
       }
     }
@@ -37,14 +42,16 @@ $(document).ready(function(){
 }); // end document.ready
 
 function getFormInfo(){ // is called when #submitBtn is clicked
-  $employee = new Employee($('#firstNameIn').val(), $('#lastNameIn').val(), $('#jobTitle').val(), Number($('#employeeId').val()), $('#salary').val()); // store a new instance of an Employee object inside $employee. Use the .inputel's .val()'s as the new Employee's property values
+  $employee = new Employee($('#firstNameIn').val(), $('#lastNameIn').val(), $('#jobTitle').val(), Number($('#employeeId').val()), Number($('#salary').val())); // store a new instance of an Employee object inside $employee. Use the .inputel's .val()'s as the new Employee's property values
   employees.push($employee); // push the new $emploee to the emploees array
   employeesPastAndPresent.push($employee); // also push it to the employeesPastAndPresent array which will hold a record of deleted and current employees
   $('.inputel').val(''); // clear any text inside the .inputel's
 } // end getFormInfo
 
 function displayInfoOnTable(arr){
-  $('.outputDiv tbody').empty(); // each time the function is called (by the #submitBtn onclick), empty the table body that's in the .outputDiv
+  var totalCost = 0;
+  $('#infoTable tbody').empty(); // each time the function is called (by the #submitBtn onclick), empty the table body that's in the .outputDiv
+  $('#totalsTable tbody').empty();
   for(row = 0; row < arr.length; row++){ // iterate a loop once for each table row desired
     $tr = $('<tr>'); // create a new table row
     var keys = Object.keys(arr[row]); // get the keys for the properties of the object in arr at the current index
@@ -53,6 +60,8 @@ function displayInfoOnTable(arr){
     } // end column for loop
     $tr.append($('<button data-id="'+employees[row].employeeId+'">').addClass('removeBtn').text('x')); // append button with data attribute
     $('.outputDiv tbody').append($tr); // append the newly filled out <tr> to the table body that's inside the .outputDiv
+    totalCost += employees[row].annualSalary; // add the current employee's anual salary to total cost
+    $('#totalCost').html('Total Spent on Salaries/Month: <strong>$'+Math.round((totalCost / 12) * 100) / 100+'</strong>'); // display monthly cost on table
   } // end row for loop
 
 } // end displayInfoOnTable
