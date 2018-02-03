@@ -1,6 +1,6 @@
 var employees = []; // current employees on the DOM
 var removedEmployees = []; // employees that have been removed from the DOM
-var allEmployees = []; // all employees ever to have exisited
+var employeesHistory = []; // all employees ever to have exisited
 
 function Employee(first, last, title, id, salary){ // constructor for Employee object
   this.firstName = first;
@@ -26,6 +26,7 @@ $(document).ready(function(){
 function getFormInfo(){ // is called when #submitBtn is clicked
   $employee = new Employee($('#firstNameIn').val(), $('#lastNameIn').val(), $('#jobTitle').val(), $('#employeeId').val(), $('#salary').val());
   employees.push($employee);
+  employeesHistory.push($employee);
   $('.inputel').val('');
 }
 
