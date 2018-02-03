@@ -2,13 +2,15 @@
   display: inline-block;
   flex-wrap: nowrap;
   margin: auto;
+  font-family: sans-serif;
 }
 
 .inputDiv {
-  background: #5fc0de;
+  background: #5a6ea2;
   display: flex;
   flex-wrap: nowrap;
   height: 50px;
+  align-items: center;
   width: auto;
   margin: auto;
 }
@@ -16,13 +18,25 @@
 .inputel {
   margin: 15px;
   margin-right: 10px;
+  height: 20px;
+  width: 110px;
+  font-size: 14px;
+}
+
+.inputDiv button {
+  height: 25px;
+}
+
+
+#totalsTable {
+  background-color: #8edad4;
 }
 
 
 table {
   border-collapse: collapse;
   width: 100%;
-  background-color: #5090a0;
+  background-color: #d1e8e8;
   margin-top: 10px
 }
 
@@ -32,20 +46,33 @@ th, td {
 }
 
 tr:nth-child(even){
-  background-color: #f2f2f2;
-
+  background-color: #a3d1d1;
 }
 
 th {
-  background-color: #d41ff9;
-  color: #00ffa9;
-  text-shadow: 2px 2px purple;
+  background-color: #8abda6;
+  color: white;
   font-size: 18px;
 }
 
 .removeBtn {
   position: relative;
   top: 6px;
-  background-color: red;
+  background: linear-gradient(to bottom right, #f7648b,  #c74c75);
   color: white;
+}
+
+.removeBtn:hover {
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+  box-shadow: 1px 1px gray;
+  background: linear-gradient(to bottom right, #ff386d,  #c61d55);
+  color: white;
+}
+
+
+p {
+  display: inline;
+  font-size: 17px;
 }
