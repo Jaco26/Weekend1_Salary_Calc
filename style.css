@@ -41,8 +41,6 @@ body {
   background: linear-gradient(to bottom right, #a5a5a5, #e6e6e6);
   color: #111111;
   cursor: pointer;
-  position: relative;
-  top: -1px;
   box-shadow: 1px 1px gray;
   font-size: 16px;
 }
@@ -79,18 +77,16 @@ th {
   position: relative;
   top: 6px;
   background: linear-gradient(to bottom right, #ffffff,  #d1d1d1);
-  color: white;
+  color: black;
 }
 
 .removeBtn:hover {
   cursor: pointer;
   position: relative;
-  top: 5px;
   box-shadow: 1px 1px gray;
-  background: linear-gradient(to bottom right, #ff386d,  #c61d55);
+  background: linear-gradient(to bottom right, #fb89a7,  #ff75a3);
   color: white;
 }
-
 
 p {
   display: inline;
