@@ -78,7 +78,7 @@ th {
 .removeBtn {
   position: relative;
   top: 6px;
-  background: linear-gradient(to bottom right, #f7648b,  #c74c75);
+  background: linear-gradient(to bottom right, #ffffff,  #d1d1d1);
   color: white;
 }
 
