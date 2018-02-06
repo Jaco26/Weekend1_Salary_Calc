@@ -30,13 +30,14 @@ function removeEmployee(){
   for (var i = 0; i < employees.length; i++) {
     if($(this).data('id') === employees[i].employeeId){
       removedEmployees.push(employees.splice(i, 1));
-      displayInfoOnTable(employees);
     }
   }
+  console.log(employees);
+  console.log(removedEmployees);
+  displayInfoOnTable(employees);
 }
 
 function getFormInfo(){ // is called when #submitBtn is clicked
-
   $employee = new Employee($('#firstNameIn').val(), $('#lastNameIn').val(), $('#jobTitle').val(), Number($('#employeeId').val()), Number($('#salary').val())); // store a new instance of an Employee object inside $employee. Use the .inputel's .val()'s as the new Employee's property values
   var valid = true; // use like a lightswitch
   var keys = Object.keys($employee); // store the keys of each of $employee's properties
@@ -64,10 +65,9 @@ function displayInfoOnTable(arr){
     for (var col = 0; col < keys.length; col++) { // iterate a loop once for each table column desired...the + 1 is to make room for a button that will hold .data() and remove the row from the DOM
       $tr.append($('<td>').text(employees[row][keys[col]])[0]); // for each property in arr[row], append a new table cell with text corrosponding to the current property key to newly created table row.
     } // end column for loop
-    $tr.append($('<button data-id="'+employees[row].employeeId+'">').addClass('removeBtn').text('x')); // append button with data attribute
+    $tr.append($('<button data-id="'+employees[row].employeeId+'">').addClass('removeBtn').text('Remove')); // append button with data attribute
     $('.outputDiv tbody').append($tr); // append the newly filled out <tr> to the table body that's inside the .outputDiv
     totalCost += employees[row].annualSalary; // add the current employee's anual salary to total cost
-    $('#totalCost').html('<p>Total Spent on Salaries/Month: $'+Math.round((totalCost / 12) * 100) / 100+'</p>'); // display monthly cost on table
   } // end row for loop
-
+$('#totalCost').html('<p>Total Spent on Salaries/Month: $'+Math.round((totalCost / 12) * 100) / 100+'</p>'); // display monthly cost on table
 } // end displayInfoOnTable
